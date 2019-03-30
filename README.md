@@ -1,6 +1,6 @@
 # Uphill Struggle
 
-Assault on a costal town using RHIBs. Search in the town for a downed pilot. Infantry only mission.
+Assault on a costal town with Navy SEALs mounted in RHIBs. Search in the town for a downed pilot. Infantry only mission.
 
 # Overview
 - Type: COOP
