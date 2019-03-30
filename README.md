@@ -26,4 +26,4 @@ Assault on a costal town with Navy SEALs mounted in RHIBs. Search in the town fo
 - Task Force Arrowhead Radio
 
 # Notes
-UAV availabe for resupply. UAV operator needs to have 
+UAV availabe for resupply. UAV operator needs to have Laws of War DLC.
