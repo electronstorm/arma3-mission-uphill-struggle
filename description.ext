@@ -1,0 +1,128 @@
+//Mission selection screen
+overviewText = "NAVY Seals. Rescue a downed pilot. Amphibious insertion. Infantry focus. JIP/Revive/Ticketed Respawn/Spectate";
+overviewTextLocked = "NAVY Seals. Rescue a downed pilot. Amphibious insertion. Infantry focus. JIP/Revive/Ticketed Respawn/Spectate";
+overviewPicture = "pics\TGbanner.paa";
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 5;
+	maxPlayers = 28;
+};
+
+//Loading Screen
+loadScreen = "pics\TGbanner.paa";
+onLoadName = "Uphill Struggle";
+onLoadMission = "Preparing for the rescue operation at the staging point...";
+author = "intel64gamer and hedgehog";
+
+saving = 0;
+enableDebugConsole = 1;
+
+//Respawn
+respawnOnStart = -1;
+respawn = 3;
+respawnDelay = 10;
+respawnVehicleDelay = 60;
+respawnTemplates[] = {"MenuPosition","Spectator","Tickets", "EndMission"};
+
+DisabledAI = true;
+
+//Garbage collection
+corpseManagerMode = 1;
+corpseLimit = 10;
+corpseRemovalMinTime = 60;
+corpseRemovalMaxTime = 120;
+
+wreckManagerMode = 1;
+wreckLimit = 5;
+wreckRemovalMinTime = 120;
+wreckRemovalMaxTime = 360;
+
+minPlayerDistance = 300; //meters
+
+//Task management
+taskManagement_propagate = 1;
+taskManagement_markers2D = 1;
+taskManagement_markers3D = 1;
+taskManagement_drawDist = 200;
+
+#include "CHVD\dialog.hpp"
+
+class cfgFunctions
+{
+	#include "functions\cfgfunctions.hpp"
+	#include "CHVD\CfgFunctions.hpp"
+	#include "functions\fhq_tasktracker.hpp"
+};
+
+//Debrief
+class CfgDebriefing
+{
+	class win
+	{
+		title = "Mission Successful";
+		subtitle = "The pilot was rescued.";
+		description = "Great job we have found him in one piece although a bit banged up.";
+	};
+
+    class alldead
+	{
+		title = "All dead";
+		subtitle = "All players have perished";
+		description = "The operation has been cancelled as all deployed personnel and available reinforcements have been depleted.";
+	};
+
+    class outoftickets
+	{
+		title = "Out of tickets";
+		subtitle = "You have depleted all available lives for this mission.";
+		description = "Please wait for a new mission to be loaded to rejoin the server as you have already used up all available lives for the current mission";
+	};
+
+    class timeout
+	{
+		title = "Out of time";
+		subtitle = "You have lost the initiative.";
+		description = "Please wait for a new mission to be loaded to rejoin the server as you have already used up all available lives for the current mission";
+	};
+
+    class pilotdead
+	{
+		title = "Pilot did not survive";
+		subtitle = "Somebody from our side or their side has killed him";
+		description = "Our efforts have gone to waste as we failed to rescue the surviving pilot.";
+	};
+};
+
+class Params
+{
+	class EmtpyLine1
+	{
+		title = ":: Mission Settings ::";
+		values[]={0,0};
+		texts[]={ "",""};
+		default = 0;
+	};
+	class paramDaytimeHour
+	{
+		title = "    Time of Day:";
+		values[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0};
+		texts[] = {"0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300","2400","Random"};
+		default = 4;
+	};
+	class PARAM_Fog
+	{
+		title= "    Fog Setting:";
+		values[]= {1,0,10,20,30,40,50,60,70,80,90,100};
+		texts[]= {"Random Fog","0% Fog","10% Fog","20% Fog","30% Fog","40% Fog","50% Fog","60% Fog","70% Fog","80% Fog","90% Fog","100% Fog"};
+		default= 1;
+	};
+	class PARAM_Overcast
+	{
+		title= "    Overcast Setting:";
+		values[]= {1,0,10,20,30,40,50,60,70,80,90,100};
+		texts[]= {"Random Overcast","0% Overcast","10% Overcast","20% Overcast","30% Overcast","40% Overcast","50% Overcast","60% Overcast","70% Overcast","80% Overcast","90% Overcast","100% Overcast"};
+		default= 1;
+	};
+};
